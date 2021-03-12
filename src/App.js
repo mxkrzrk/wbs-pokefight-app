@@ -1,8 +1,10 @@
 import { Switch, Route, Redirect } from 'react-router';
 import './App.css';
 import Header from './components/Header/Header';
+import Collections from './components/Cards/CollectionsOfCards'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+
 
 function App() {
   return (
@@ -13,8 +15,7 @@ function App() {
       <Row>
         <main className="main">
           <Switch>
-            <Route path="/" exact>
-              <div>All preview cards</div>
+            <Route path="/" component={Collections}>
             </Route>
             <Route path="/pokemon/:id" exact>
               <div>Single info card</div>

@@ -1,0 +1,38 @@
+.container {
+    margin: 3%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 0;
+}
+
+#cat {
+    border: 3px solid var(--primary-color);
+    margin: 3%;
+    text-align: center;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+#textCat {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#catName {
+    color: var(--secondary-color);
+    font-family: var(--font-body);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#button {
+    margin-bottom: 3%;
+    background-color: var(--yellow-color);
+    color: var(--secondary-color);
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+    font-weight: bold;
+}
