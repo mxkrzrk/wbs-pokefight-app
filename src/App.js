@@ -1,8 +1,14 @@
+import Header from './components/Header/Header';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 function App() {
   return (
-    <div>hello world!
-    </div>
+    <Container fluid>
+      <Row>
+        <Header />
+      </Row>
+    </Container>
   );
 }
 

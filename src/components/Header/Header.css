@@ -1,0 +1,23 @@
+.header {
+  background-color: var(--primary-color);
+  padding: 2rem 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.header-icon {
+  color: var(--yellow-color);
+  margin-right: 1rem;
+  font-size: 2rem;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  border: 2px solid var(--secondary-color);
+}
+
+.header-title {
+  margin-bottom: 0;
+  color: var(--yellow-color);
+  font-family: var(--font-header);
+}
