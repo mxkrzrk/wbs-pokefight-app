@@ -5,11 +5,13 @@ import 'bootstrap/dist/css/bootstrap-reboot.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <ScrollToTop />
       <App />
     </Router>
   </React.StrictMode>,
