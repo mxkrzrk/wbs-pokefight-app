@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './SingleCard.css';
 import Card from 'react-bootstrap/Card';
-import axios from 'axios';
+import Api from '../../services/Api';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const SingleCard = () => {
   const [pokemon, setPokemon] = useState();
@@ -10,32 +11,47 @@ const SingleCard = () => {
 
   useEffect(() => {
     (async () => {
-      await axios
-        .get(`${process.env.REACT_APP_API_URL}/api/pokemon/${id}`)
-        .then((res) => setPokemon(res.data[0]))
-        .catch((err) => console.log(err));
-    })();
-  }, [id]);
+      await Api
+        .get(`/${id}`)
+        .then((res) => setPokemon(res.data))
+        .catch((err) => console.log(err))
+    })()
+  }, [id])
 
   return (
-    <>
+    <div className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
       {pokemon && (
         <Card style={{ width: '18rem' }} key={pokemon.id}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Header>{pokemon.name.toUpperCase()} ({pokemon.id})</Card.Header>
+          <Card.Img variant="top" src={pokemon.sprites.front_default}/>
           <Card.Body>
-            <Card.Title>{pokemon.name['english']}</Card.Title>
-            <Card.Text>{pokemon.type}</Card.Text>
+            {pokemon.types.map(type => (
+              <Card.Text key={type.slot}>{type.type.name.toUpperCase()}</Card.Text>
+            ))}
             <Card.Text>
-              Attack {pokemon.base['Attack']} | Defense{' '}
-              {pokemon.base['Defense']} | HP {pokemon.base['HP']} | Sp. Attack{' '}
-              {pokemon.base['Sp. Attack']} | Sp. Defense{' '}
-              {pokemon.base['Sp. Defense']} | Speed {pokemon.base['Speed']}
+              Base experience {pokemon.base_experience} |
+              Height {pokemon.height} |
+              Weight {pokemon.weight}
             </Card.Text>
           </Card.Body>
+          <ListGroup>
+            <ListGroupItem>Abilities</ListGroupItem>
+            {pokemon.abilities.map(ability => (
+              <ListGroupItem key={ability.slot}>{ability.ability.name}</ListGroupItem>
+            ))}
+          </ListGroup>
+          <ListGroup>
+            <ListGroupItem>Stats</ListGroupItem>
+            {pokemon.stats.map((stat, index) => (
+              <ListGroupItem key={index}>
+                {stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1)} {stat.base_stat}
+              </ListGroupItem>
+            ))}
+          </ListGroup>
         </Card>
       )}
-    </>
-  );
-};
+    </div>
+  )
+}
 
 export default SingleCard;
