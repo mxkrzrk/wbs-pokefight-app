@@ -15,9 +15,16 @@ body {
   font-size: 16px;
 }
 
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   body {
-    font-size: 16px;
+    font-size: 20px;
   }
 }

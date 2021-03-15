@@ -1,38 +1,53 @@
 .container {
-    margin: 3%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    padding: 0;
+  margin: 3%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  padding: 0;
 }
 
-#cat {
-    border: 3px solid var(--primary-color);
-    margin: 3%;
-    text-align: center;
-    padding: 0;
-    background-color: whitesmoke;
+.cat {
+  border: 3px solid var(--primary-color);
+  margin: 3%;
+  text-align: center;
+  padding: 0;
+  background-color: whitesmoke;
+  width: 90%;
 }
 
-#textCat {
-    font-family: var(--font-body);
-    font-size: 1.4rem;
-    font-weight: bold;
+.textCat {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
-#catName {
-    color: var(--secondary-color);
-    font-family: var(--font-body);
-    font-size: 2rem;
-    font-weight: bold;
+.catName {
+  color: var(--secondary-color);
+  font-family: var(--font-body);
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-#button {
-    margin-bottom: 3%;
-    background-color: var(--yellow-color);
-    color: var(--secondary-color);
-    font-family: var(--font-body);
-    font-size: 1.6rem;
-    font-weight: bold;
+.button {
+  margin-bottom: 3%;
+  background-color: var(--yellow-color);
+  color: var(--secondary-color);
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .cat {
+    width: 40%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .cat {
+    width: 20%;
+  }
 }
