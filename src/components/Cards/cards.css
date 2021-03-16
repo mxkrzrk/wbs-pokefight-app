@@ -1,11 +1,3 @@
-.container {
-  margin: 3%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-content: space-between;
-  padding: 0;
-}
 
 .cat {
   border: 3px solid var(--primary-color);

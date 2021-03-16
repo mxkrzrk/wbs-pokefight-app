@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Collections from './components/Cards/CollectionsOfCards';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Fights from './components/Fight/Fights'
 import SingleCard from './components/SingleCard/SingleCard';
 
 function App() {
@@ -18,9 +19,13 @@ function App() {
             <Route path="/" exact>
               <Collections />
             </Route>
+            <Route path="/pokemon/fights/:name">
+              <Fights />
+            </Route>
             <Route path="/pokemon/:id">
               <SingleCard />
             </Route>
+            
             <Redirect to="/" />
           </Switch>
         </main>
