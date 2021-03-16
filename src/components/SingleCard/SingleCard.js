@@ -11,47 +11,77 @@ const SingleCard = () => {
 
   useEffect(() => {
     (async () => {
-      await Api
-        .get(`/${id}`)
+      await Api.get(`/${id}`)
         .then((res) => setPokemon(res.data))
-        .catch((err) => console.log(err))
-    })()
-  }, [id])
+        .catch((err) => console.log(err));
+    })();
+  }, [id]);
 
   return (
     <div className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
       {pokemon && (
-        <Card style={{ width: '18rem' }} key={pokemon.id}>
-          <Card.Header>{pokemon.name.toUpperCase()} ({pokemon.id})</Card.Header>
-          <Card.Img variant="top" src={pokemon.sprites.front_default}/>
+        <Card className="poke-info shadow">
+          <Card.Header as="h2" className="poke-info-name">
+            {pokemon.name}
+          </Card.Header>
+          <Card.Img
+            variant="top"
+            className="poke-info-image"
+            src={pokemon.sprites.other.dream_world.front_default}
+          />
           <Card.Body>
-            {pokemon.types.map(type => (
-              <Card.Text key={type.slot}>{type.type.name.toUpperCase()}</Card.Text>
-            ))}
+            <div className="d-flex justify-content-around poke-info-text">
+              {pokemon.types.map((type) => (
+                <Card.Text className="d-flex flex-row" key={type.slot}>
+                  {type.type.name.toUpperCase()}
+                </Card.Text>
+              ))}
+            </div>
             <Card.Text>
-              Base experience {pokemon.base_experience} |
-              Height {pokemon.height} |
-              Weight {pokemon.weight}
+              Base experience: {pokemon.base_experience} | Height:
+              {pokemon.height} | Weight: {pokemon.weight}
             </Card.Text>
           </Card.Body>
-          <ListGroup>
-            <ListGroupItem>Abilities</ListGroupItem>
-            {pokemon.abilities.map(ability => (
-              <ListGroupItem key={ability.slot}>{ability.ability.name}</ListGroupItem>
-            ))}
-          </ListGroup>
-          <ListGroup>
-            <ListGroupItem>Stats</ListGroupItem>
-            {pokemon.stats.map((stat, index) => (
-              <ListGroupItem key={index}>
-                {stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1)} {stat.base_stat}
+          <Card.Body className="d-lg-flex justify-content-lg-around align-items-lg-start flex-lg-row-reverse">
+            <ListGroup as="ul" className="poke-info-list">
+              <ListGroupItem
+                as="li"
+                className="poke-info-list-title poke-info-list-item"
+              >
+                Abilities
               </ListGroupItem>
-            ))}
-          </ListGroup>
+              {pokemon.abilities.map((ability) => (
+                <ListGroupItem key={ability.slot}>
+                  {ability.ability.name}
+                </ListGroupItem>
+              ))}
+            </ListGroup>
+            <ListGroup as="ul" className="poke-info-list">
+              <ListGroupItem
+                as="li"
+                className="poke-info-list-title poke-info-list-item"
+              >
+                Stats
+              </ListGroupItem>
+              {pokemon.stats.map((stat, index) => (
+                <ListGroupItem
+                  as="li"
+                  key={index}
+                  className="d-flex justify-content-around align-items-center poke-info-list-item"
+                >
+                  <div className="text-left w-50">
+                    {stat.stat.name.charAt(0).toUpperCase() +
+                      stat.stat.name.slice(1)}
+                  </div>
+                  <div className="w-50">{stat.base_stat}</div>
+                </ListGroupItem>
+              ))}
+            </ListGroup>
+          </Card.Body>
         </Card>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default SingleCard;

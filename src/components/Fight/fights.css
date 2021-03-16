@@ -1,35 +1,40 @@
-.cat {
-    border: 3px solid var(--primary-color);
-    margin: 3%;
-    text-align: center;
-    padding: 0;
-    background-color: whitesmoke;
-    width: 90%;
+.poke {
+  border: 3px solid var(--primary-color);
+  margin: 2rem;
+  text-align: center;
+  padding: 1rem;
+  width: 90%;
 }
 
-.textCat {
-    font-family: var(--font-body);
-    font-size: 1.4rem;
-    font-weight: bold;
+.poke-image {
+  width: 100%;
+  height: 10rem;
 }
 
-.catName {
-    color: var(--secondary-color);
-    font-family: var(--font-body);
-    font-size: 2rem;
-    font-weight: bold;
+.poke-text {
+  font-family: var(--font-body);
+  font-weight: bold;
 }
 
-  /* Medium devices (tablets, 768px and up) */
+.poke-name {
+  color: var(--secondary-color);
+  font-family: var(--font-body);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    .cat {
-width: 40%;
-    }
+  .poke {
+    padding: 1.5rem;
+    width: 40%;
+  }
 }
 
-  /* Large devices (desktops, 992px and up) */
+/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .cat {
-width: 20%;
-    }
+  .poke {
+    padding: 2rem;
+    width: 40%;
+  }
 }
