@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Fights from './components/Fight/Fights';
 import SingleCard from './components/SingleCard/SingleCard';
+import Searchbar from './components/Searchbar/Searchbar';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <main className="main">
           <Switch>
             <Route path="/" exact>
+              <Searchbar />
               <Collections />
             </Route>
             <Route path="/pokemon/fights/:name">
