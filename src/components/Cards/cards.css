@@ -20,6 +20,7 @@
   color: var(--secondary-color);
   font-family: var(--font-body);
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .button {

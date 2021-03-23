@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Cards.css';
 import Cards from './Cards';
 import Col from 'react-bootstrap/Col';
-import Spinner from 'react-bootstrap/Spinner';
 
 export default function Collections() {
   const [pokemon, setPokemon] = useState({
@@ -19,7 +18,6 @@ export default function Collections() {
   }, []);
 
   useEffect(() => {
-    setLoader(true);
     fetch(pokemon.url)
       .then((res) => res.json())
       .then((data) => {
@@ -29,7 +27,6 @@ export default function Collections() {
           next: data.next,
           pokemon: prevState.pokemon.concat(data.results),
         }));
-        setLoader(false);
       })
       .catch((e) => console.log(e.message));
   }, [pokemon.url]);
@@ -48,7 +45,6 @@ export default function Collections() {
 
   return (
     <Col className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
-      {loader && <Spinner size="lg" variant="danger" animation="grow" />}
       {pokemon.pokemon &&
         pokemon.pokemon.map((poke, index) => {
           return <Cards key={index} {...poke} />;

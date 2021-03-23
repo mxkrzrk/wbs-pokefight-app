@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDotCircle } from '@fortawesome/free-solid-svg-icons';
 import './Header.css';
@@ -9,7 +10,9 @@ const Header = () => {
       <div className="d-flex justify-content-around align-items-center">
         <div className="d-flex justify-content-center align-items-center">
           <FontAwesomeIcon icon={faDotCircle} className="header-icon shadow" />
-          <h1 className="header-title d-none d-md-block">PokeFight</h1>
+          <Link to="/" exact>
+            <h1 className="header-title d-none d-md-block">PokeFight</h1>
+          </Link>
         </div>
         <Searchbar />
       </div>

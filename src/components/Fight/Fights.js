@@ -21,7 +21,7 @@ export default function Fights() {
   const [loader, setLoader] = useState();
 
   useEffect(() => {
-    if ((pokemon, lucky)) {
+    if (pokemon && lucky) {
       const winner = checkVictory(pokemon, lucky);
       switch (winner) {
         case 1:
