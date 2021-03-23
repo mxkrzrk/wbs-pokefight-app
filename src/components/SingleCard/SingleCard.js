@@ -4,21 +4,27 @@ import './SingleCard.css';
 import Card from 'react-bootstrap/Card';
 import Api from '../../services/Api';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner';
 
 const SingleCard = () => {
   const [pokemon, setPokemon] = useState();
   const { id } = useParams();
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     (async () => {
       await Api.get(`/${id}`)
-        .then((res) => setPokemon(res.data))
+        .then((res) => {
+          setPokemon(res.data);
+          setLoader(false);
+        })
         .catch((err) => console.log(err));
     })();
   }, [id]);
 
   return (
     <div className="d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center">
+      {loader && <Spinner size="lg" variant="danger" animation="grow" />}
       {pokemon && (
         <Card className="poke-info shadow">
           <Card.Header as="h2" className="poke-info-name">
