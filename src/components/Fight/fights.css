@@ -2,7 +2,7 @@
   border: 3px solid var(--primary-color);
   margin: 2rem;
   text-align: center;
-  padding: 1rem;
+  padding: 0.8rem;
   width: 90%;
 }
 
@@ -16,17 +16,34 @@
   font-weight: bold;
 }
 
-.poke-name {
+.poke-progress {
   color: var(--secondary-color);
-  font-family: var(--font-body);
+  background-color: var(--yellow-color);
   font-weight: bold;
+  height: 2rem;
   text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.poke-button {
+  background-color: var(--secondary-color);
+  border: none;
+}
+
+.poke-button:hover,
+.poke-button:active {
+  background-color: var(--yellow-color);
+  border: none;
+}
+
+.poke-button:focus {
+  box-shadow: none !important;
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .poke {
-    padding: 1.5rem;
+    padding: 1rem;
     width: 40%;
   }
 }
@@ -34,7 +51,7 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .poke {
-    padding: 2rem;
+    padding: 1.2rem;
     width: 40%;
   }
 }

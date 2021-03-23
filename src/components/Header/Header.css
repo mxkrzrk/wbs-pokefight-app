@@ -1,6 +1,6 @@
 .header {
   background-color: var(--primary-color);
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   width: 100%;
   position: fixed;
   top: 0;
@@ -27,14 +27,14 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .header {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
   }
 
   .header-icon {
-    font-size: 3rem;
+    font-size: 1.8rem;
   }
 
   .header-title {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }

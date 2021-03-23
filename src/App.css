@@ -1,11 +1,11 @@
 .main {
-  margin: 8rem 0;
+  margin: 6rem 0;
   width: 100%;
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .main {
-    margin: 11rem 0;
+    margin: 8rem 0;
   }
 }

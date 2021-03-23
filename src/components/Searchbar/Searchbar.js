@@ -32,14 +32,13 @@ export default function Searchbar() {
 
   return (
     <Form className="search-form" onSubmit={searchPokemonSubmitHandle}>
-      <Form.Group className="d-flex justify-content-center align-items-center">
+      <Form.Group className="d-flex justify-content-center align-items-center mb-0">
         <Form.Control
           type="search"
           className="search-form-input"
-          size="lg"
           onChange={searchPokemonInputHandle}
         />
-        <Button type="submit" className="search-button" size="lg">
+        <Button type="submit" className="search-button">
           <FontAwesomeIcon icon={faSearch} className="search-button-icon" />
         </Button>
       </Form.Group>
