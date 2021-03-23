@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Fights from './components/Fight/Fights';
 import SingleCard from './components/SingleCard/SingleCard';
+import NavBar from './components/Dashboard/NavBar'
+import Dashboard from './components/Dashboard/Dashboard'
 
 function App() {
   return (
@@ -14,10 +16,14 @@ function App() {
         <Header />
       </Row>
       <Row>
-        <main className="main">
+      <main className="main">
           <Switch>
             <Route path="/" exact>
+            <NavBar />
               <Collections />
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard />
             </Route>
             <Route path="/pokemon/fights/:name">
               <Fights />
