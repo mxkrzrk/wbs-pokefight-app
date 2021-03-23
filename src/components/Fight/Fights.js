@@ -10,6 +10,7 @@ import './Fights.css';
 import CardFight from './CardFight';
 import Col from 'react-bootstrap/Col';
 import Won from '../Won/Won';
+import Lose from '../Won/Lose';
 import Spinner from 'react-bootstrap/Spinner';
 
 export default function Fights() {
@@ -18,6 +19,7 @@ export default function Fights() {
   const [pokemon, setPokemon] = useState();
   const [lucky, setLucky] = useState();
   const [won, setWon] = useState({ check: false, winner: null });
+  const [lose, setLose] = useState({ check: false, winner: null, draw: false });
   const [loader, setLoader] = useState();
 
   useEffect(() => {
@@ -28,10 +30,10 @@ export default function Fights() {
           setWon({ check: true, winner: pokemon.data.name });
           break;
         case 2:
-          setWon({ check: true, winner: pokemon.data.name });
+          setLose({ check: true, winner: pokemon.data.name, draw: false });
           break;
         case 0:
-          setWon({ check: true, winner: pokemon.data.name });
+          setLose({ check: true, winner: pokemon.data.name, draw: true });
           break;
         default:
           break;
@@ -54,7 +56,6 @@ export default function Fights() {
             specialDefense: data.stats[4].base_stat,
           },
         });
-        setLoader(false);
       })
       .catch((e) => console.log(e.message));
   }, [name]);
@@ -133,6 +134,7 @@ export default function Fights() {
   return (
     <>
       {won.check && <Won {...won} onClickWon={handleClickWon} />}
+      {lose.check && <Lose {...lose} onClickWon={handleClickWon} />}
       <Col className="d-flex flex-column align-items-start flex-md-row flex-md-wrap justify-content-center">
         {loader && <Spinner size="lg" variant="danger" animation="grow" />}
         {pokemon && lucky && (

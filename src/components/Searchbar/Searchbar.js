@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Alert from 'react-bootstrap/Alert';
 
 export default function Searchbar() {
   const history = useHistory();
@@ -18,7 +17,9 @@ export default function Searchbar() {
       const validateName = pokeName.trim().toLowerCase();
       fetch(`https://pokeapi.co/api/v2/pokemon/${validateName}`)
         .then((res) => res.json())
-        .then((data) => history.push(`/pokemon/${data.id}`))
+        .then((data) => {
+          history.push(`/pokemon/${data.id}`);
+        })
         .catch((err) => setError(true));
     } else {
       setError(true);
@@ -43,9 +44,9 @@ export default function Searchbar() {
         </Button>
       </Form.Group>
       {error && (
-        <Alert variant="danger">
+        <p className="text-warning">
           Pokemon not found, please enter another or correct name!
-        </Alert>
+        </p>
       )}
     </Form>
   );

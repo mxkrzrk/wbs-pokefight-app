@@ -10,7 +10,6 @@ export default function Collections() {
     pokemon: [],
     url: 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20',
   });
-  const [loader, setLoader] = useState();
 
   useEffect(() => {
     window.addEventListener('scroll', scrollPositionHandle);

@@ -1,27 +1,21 @@
 import React from 'react';
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 import './Dashboard.css';
-import Nav from 'react-bootstrap/Nav'
-
+import Nav from 'react-bootstrap/Nav';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
 
 export default function NavBar() {
-    return(
-        <div>
-        <Nav variant="pills" id="bar">
-    <Nav.Item>
-        <Nav.Link eventKey="1" id="item">
-        <Link to="/dashboard" id="item">
-        All Players
+  return (
+    <Nav variant="pills" className="bar">
+      <ButtonGroup>
+        <Link to="/dashboard">
+          <Button className="item">Ranking</Button>
         </Link>
-        </Nav.Link>
-    </Nav.Item>
-    
-    <Nav.Item>
-        <Nav.Link eventKey="2" href="#/" id="item">
-        Profile
-        </Nav.Link>
-    </Nav.Item>
-</Nav>
-        </div>
-    )
+        <Link to="/">
+          <Button className="item">Profile</Button>
+        </Link>
+      </ButtonGroup>
+    </Nav>
+  );
 }
