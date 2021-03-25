@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Cards.css';
+import './cards.css';
 import Cards from './Cards';
 import Col from 'react-bootstrap/Col';
 

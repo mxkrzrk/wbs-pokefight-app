@@ -6,7 +6,7 @@ import {
   health,
   checkVictory,
 } from '../../utils/attacksType';
-import './Fights.css';
+import './fights.css';
 import CardFight from './CardFight';
 import Col from 'react-bootstrap/Col';
 import Won from '../Won/Won';
@@ -122,7 +122,9 @@ export default function Fights() {
       ...prevState,
       player: {
         ...prevState.player,
-        hp: health(prevState, prevState.data.stats[0].base_stat),
+        hp:
+          health(prevState, prevState.data.stats[0].base_stat) -
+          attack(lucky, prevState),
       },
     }));
   };

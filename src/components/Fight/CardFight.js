@@ -1,4 +1,4 @@
-import './Fights.css';
+import './fights.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ProgressBar from 'react-bootstrap/ProgressBar';
