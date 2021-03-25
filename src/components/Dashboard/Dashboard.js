@@ -6,7 +6,7 @@ export default function Dashboard() {
   const [player, setPlayer] = useState();
 
   useEffect(() => {
-    fetch('http://localhost:8080/dashboard')
+    fetch(process.env.REACT_APP_DASHBOARD_API_URL + '/dashboard')
       .then((res) => res.json())
       .then((data) => setPlayer(data))
       .catch((e) => console.log(e.message));
